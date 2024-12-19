@@ -1,0 +1,19 @@
+def register(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            # Сохраняем пользователя
+            user = form.save()
+            # Аутентификация пользователя
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')  # Убедитесь, что вы используете правильное поле
+            user = authenticate(username=username, password=password)
+            if user is not None:  # Проверяем, что пользователь аутентифицирован
+                login(request, user)  # Логиним пользователя
+                return redirect("")  # Укажите URL, на который нужно перенаправить
+            else:
+                form.add_error(None, 'Имя пользователя и пароль введены неверно')
+    else:
+        form = UserRegistrationForm()  # Создаем новую форму для GET-запроса
+
+    return render(request, 'register.html', {'form': form})

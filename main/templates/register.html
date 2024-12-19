@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <style>
+      html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+           align-content: center;
+            justify-items: center;
+            flex-direction: column;
+            background-image: url("../static/fon.png");
+            background-size: cover;
+            background-position: center;
+        }
+        .box{
+            background: rgb(0, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <form method="post">
+ {% csrf_token %}
+ {{ form.as_p }}
+
+<button type="submit">Зарегистрироваться</button>
+    </form>
+ <p class="mt-3 text-center">Уже есть аккаунт? <a href="{%url 'login'%}">Войти</a></p>
+</div>
+</body>
+</html>

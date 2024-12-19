@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+     <style>
+      html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+
+        }
+        body {
+           align-content: center;
+            justify-items: center;
+            flex-direction: column;
+            background-image: url("../static/fon2.png");
+            background-size: cover;
+            background-position: center;
+        }
+        .box{
+            background: rgb(0, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        h1{
+            text-align: center;
+            justify-items: center;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Приветствуем на нашем сайте</h1>
+<div class="box">
+            <a href="{% url 'request' %}" >Создать новую заявку</a>
+
+
+
+        </div>
+</body>
+</html>
